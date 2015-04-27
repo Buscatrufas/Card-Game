@@ -1,0 +1,19 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="../FinalSample/Assets/MAIN/OnlineCardGame/Scripts/Game/GameManager.cs">
+    <Files>
+      <File FileName="../FinalSample/Assets/MAIN/OnlineCardGame/Scripts/Menu/MainMenu.cs" Line="78" Column="110" />
+      <File FileName="../FinalSample/Assets/MAIN/OnlineCardGame/Scripts/Game/GameManager.cs" Line="62" Column="2" />
+      <File FileName="../FinalSample/Assets/MAIN/Photon Unity Networking/Plugins/PhotonNetwork/PhotonNetwork.cs" Line="1" Column="1" />
+      <File FileName="../FinalSample/Assets/MAIN/Photon Unity Networking/Plugins/PhotonNetwork/PhotonHandler.cs" Line="1" Column="1" />
+      <File FileName="../FinalSample/Assets/MAIN/OnlineCardGame/Scripts/Menu/Master.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/IUController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/RandomMatch.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="15" Column="2" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
