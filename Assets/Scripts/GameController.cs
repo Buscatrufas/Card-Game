@@ -15,10 +15,27 @@ public class GameController : MonoBehaviour {
 
 	private void Awake(){
 		initializeTable ();
+		StartGame ();
 	}
 
 	private void initializeTable(){
 		Instantiate(table);
 	}
+
+	void StartGame(){
+		if (!setPlayer1 && !setPlayer2) {
+			setPlayer1 = true;
+			//posicionar en setPlayer1 en PlayerZone1
+		} else if (!setPlayer1) {
+			setPlayer1 = true;
+			//posicionar en setPlayer1 en PlayerZone1
+		} else if (!setPlayer2) {
+			setPlayer2 = true;
+			//posicionar en setPlayer2 en PlayerZone2
+		}
+			
+
+	}
+
 
 }

@@ -163,6 +163,7 @@
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
      <Compile Include="Assets\Scripts\ComboBox.cs" />
      <Compile Include="Assets\Scripts\ComboBoxTest.cs" />
+     <Compile Include="Assets\Scripts\Cursor.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\IUController.cs" />
      <Compile Include="Assets\Scripts\MyClient.cs" />
@@ -170,9 +171,12 @@
      <Compile Include="Assets\Scripts\NetworkManager.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\RandomMatch.cs" />
+     <Compile Include="Assets\Scripts\ServerConfing.cs" />
      <Compile Include="Assets\Scripts\TurnManager.cs" />
+     <Compile Include="Assets\Scripts\TurnOfPlayer.cs" />
      <Compile Include="Assets\Scripts\draggable.cs" />
      <Compile Include="Assets\Scripts\dropZone.cs" />
+     <Compile Include="Assets\Scripts\moveCube.cs" />
      <None Include="Assets\Plugins\Photon3Unity3D.xml" />
      <None Include="Assets\Photon Unity Networking\Demos\MarcoPolo-Tutorial\marcopolo-readme.txt" />
      <None Include="Assets\Plugins\release_history.txt" />

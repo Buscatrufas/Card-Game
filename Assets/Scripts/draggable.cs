@@ -10,6 +10,7 @@ public class draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
 	GameObject placeholder = null;
 
+
 	/*public enum Slot
 	{
 		WEAPON,

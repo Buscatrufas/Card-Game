@@ -1,15 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="../FinalSample/Assets/MAIN/OnlineCardGame/Scripts/Game/GameManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Cursor.cs">
     <Files>
-      <File FileName="../FinalSample/Assets/MAIN/OnlineCardGame/Scripts/Menu/MainMenu.cs" Line="78" Column="110" />
-      <File FileName="../FinalSample/Assets/MAIN/OnlineCardGame/Scripts/Game/GameManager.cs" Line="62" Column="2" />
-      <File FileName="../FinalSample/Assets/MAIN/Photon Unity Networking/Plugins/PhotonNetwork/PhotonNetwork.cs" Line="1" Column="1" />
-      <File FileName="../FinalSample/Assets/MAIN/Photon Unity Networking/Plugins/PhotonNetwork/PhotonHandler.cs" Line="1" Column="1" />
-      <File FileName="../FinalSample/Assets/MAIN/OnlineCardGame/Scripts/Menu/Master.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/moveCube.cs" Line="69" Column="2" />
       <File FileName="Assets/Scripts/IUController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/RandomMatch.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GameController.cs" Line="15" Column="2" />
+      <File FileName="Assets/Scripts/ServerConfing.cs" Line="1" Column="1" />
+      <File FileName="../Downloads/9781430262299/978-1-4302-6229-9_Thorn_Chapter09_Companion_Files/Assets/scripts/Cursor.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Cursor.cs" Line="47" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

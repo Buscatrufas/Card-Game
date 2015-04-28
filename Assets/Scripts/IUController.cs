@@ -5,6 +5,10 @@ using UnityEngine.EventSystems;
 
 public class IUController : MonoBehaviour {
 
+	/*--- Datos de conexión ---*/
+	public string connectionIP = "127.0.0.1";
+	public int connectionPort = 25001;
+
 	/*--- Elementos del dropdown list ---*/
 	GUIContent[] comboBoxList;
 	private ComboBox comboBoxControl;// = new ComboBox();
@@ -16,6 +20,9 @@ public class IUController : MonoBehaviour {
 
 	/*--- Declaracion de jugador ---*/
 	private Player jug;
+
+	/*--- Control de inicio de juego ---*/
+	bool IUEnabled = true;
 
 
 	public void pushPlay(){
@@ -44,9 +51,9 @@ public class IUController : MonoBehaviour {
 			
 			}
 
-			Debug.Log("Se ha creado un jugador con el nombre : " + jug.NamePlayer + " y de clase:  "  + jug.ClassPlayer );
+			Debug.Log("Se ha creado un jugador con el nombre : " + jug.NamePlayer + " y de clase:  "  + jug.ClassPlayer );	
+			Network.Connect(connectionIP, connectionPort);
 
-			Application.LoadLevel("TableGame");
 		}
 	}
 
@@ -69,7 +76,14 @@ public class IUController : MonoBehaviour {
 	}
 
 	void OnGUI () {
-		comboBoxControl.Show ();
+		if(IUEnabled) comboBoxControl.Show ();
+		if (Network.peerType == NetworkPeerType.Disconnected) {
+			if (GUI.Button(new Rect(10, 50, 120, 20), "Initialize Server"))
+			{
+				IUEnabled = !IUEnabled;
+				Network.InitializeServer(32, connectionPort, false);
+			}
+		}
 		
 	}
 
