@@ -9,8 +9,12 @@ public class dropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 	public void OnDrop (PointerEventData eventData){
 		Debug.Log (eventData.pointerDrag + " OnDrop to " + gameObject.name);
 		draggable d = eventData.pointerDrag.GetComponent<draggable> ();
-		if (d != null ) { // && (typeOfItem == d.typeOfItem || typeOfItem==draggable.Slot.INVENTORY )
+		if (d != null && d.tag == gameObject.tag ) { // && (typeOfItem == d.typeOfItem || typeOfItem==draggable.Slot.INVENTORY )
 			d.parentToReturnTo = this.transform;
+			if(gameObject.name == "DropZone1" || gameObject.name == "DropZone2"){
+				d.changeSlot(draggable.Slot.REST);
+			}
+				
 		}
 
 	}

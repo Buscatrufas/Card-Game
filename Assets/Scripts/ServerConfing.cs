@@ -31,7 +31,7 @@ public class ServerConfing : MonoBehaviour {
 	void SpawnPlayer(NetworkPlayer player)
 	{
 		string tempPlayerString = player.ToString();
-		int playerNumber = Convert.ToInt32(tempPlayerString);
+		//int playerNumber = Convert.ToInt32(tempPlayerString);
 
 		if (playerScripts.Count == 0) {
 			//Instantiate(player1);

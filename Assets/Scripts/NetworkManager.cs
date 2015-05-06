@@ -26,7 +26,7 @@ public class NetworkManager : MonoBehaviour {
 	public IEnumerator RefresHostList(){
 		Debug.Log ("Refreshing...");
 		MasterServer.RequestHostList (serverName);
-		float timeStarted = Time.time;
+		//float timeStarted = Time.time;
 		float timeEnd = Time.time + refreshRequestLenght;
 
 		while (Time.time < timeEnd) {

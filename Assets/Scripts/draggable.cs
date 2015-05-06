@@ -8,19 +8,24 @@ public class draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	public Transform parentToReturnTo = null;
 	public Transform placeholderParent = null;
 
+	void Start(){
+		this.enabled = false;
+	}
+
 	GameObject placeholder = null;
 
 
-	/*public enum Slot
+	public enum Slot
 	{
-		WEAPON,
-		HEAD,
-		CHEST,
-		LEGS,
-		FEET,
-		INVENTORY
+		DEAD,
+		BATTLE,
+		REST,
+		DECK,
+		HAND
 	};
-	public Slot typeOfItem = Slot.INVENTORY; */
+
+
+	Slot typeOfItem = Slot.HAND; 
 
 	public void OnBeginDrag (PointerEventData eventData){
 
@@ -73,11 +78,21 @@ public class draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 		this.transform.SetParent (parentToReturnTo);
 		this.transform.SetSiblingIndex (placeholder.transform.GetSiblingIndex ());
 		GetComponent<CanvasGroup> ().blocksRaycasts = true;
-
+		if (typeOfItem == Slot.REST)
+			this.enabled = false;
 		Destroy (placeholder);
 
 		//EventSystem.current.RaycastAll (eventData);
 	}
+
+	public Slot getType(){
+		return typeOfItem;
+	}
+
+	public void changeSlot(Slot type){
+		typeOfItem = type;
+	}
+
 
 
 }

@@ -1,10 +1,15 @@
 fileFormatVersion: 2
 guid: 44aa9c439256e4196bf3dac789bd8458
-timeCreated: 1430058746
+timeCreated: 1430856476
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Player1Zone: {instanceID: 0}
+  - Player2Zone: {instanceID: 0}
+  - card: {instanceID: 0}
+  - zhapire: {fileID: 145336, guid: 59cedf9fdcf59411ab6024d81db09a2a, type: 2}
+  - table: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
