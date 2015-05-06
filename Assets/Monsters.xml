@@ -1,0 +1,12 @@
+<MonsterCollection>
+ 	<Monsters>
+ 		<Monster name="Potato Sargent">
+ 			<Health>2</Health>
+ 			<Atk>2</Atk>
+ 		</Monster>
+ 		<Monster name="FaperMan">
+ 			<Health>3</Health>
+ 			<Atk>1</Atk>
+ 		</Monster>
+ 	</Monsters>
+ </MonsterCollection>

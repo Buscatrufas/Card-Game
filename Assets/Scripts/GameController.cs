@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.IO;
 
 public class GameController : MonoBehaviour {
 
@@ -16,6 +18,7 @@ public class GameController : MonoBehaviour {
 	public GameObject Player2Zone;
 	public GameObject card;
 	public GameObject zhapire;
+	public draggable script;
 
 	public GameObject table;
 	public Text life1;
@@ -34,6 +37,7 @@ public class GameController : MonoBehaviour {
 		jug2 = new Player ("Butifarra", "Asesino");
 		listOfElement1 = GameObject.FindGameObjectsWithTag ("Player1");
 		listOfElement2 = GameObject.FindGameObjectsWithTag ("Player2");
+		var monsterCollection = MonsterContainer.Load(Path.Combine(Application.dataPath, "monsters.xml"));
 		turn = 0;
 		initializeTable ();
 		selectInit ();
@@ -53,12 +57,12 @@ public class GameController : MonoBehaviour {
 				life1.text = jug1.Health.ToString();
 			
 			}
-			if (go.name == "handPlayer1") {
-				for (int i = 0; i<3; ++i) {
+			if (go.name == "handPlayer") {
+				/*for (int i = 0; i<3; ++i) {
 					GameObject c = (GameObject)Instantiate (card);
 					c.transform.SetParent (go.transform, false);
 					c.tag = "Player1";
-				}
+				}*/
 			}
 		}
 
@@ -70,7 +74,8 @@ public class GameController : MonoBehaviour {
 				
 			}
 
-			if (go.name == "handPlayer2") {
+			if (go.name == "handPlayer") {
+
 				GameObject c = (GameObject)Instantiate (card);
 				c.transform.SetParent (go.transform, false);
 				c.tag = "Player2";
@@ -125,8 +130,32 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void pushNext(){
+
+		if (turnPlayer1) {
+			turnPlayer1 = false;
+			turnPlayer2 = true;
+			ManageChangeOfTurn(listOfElement2, listOfElement1);
+		} else {
+			turnPlayer2 = false;
+			turnPlayer1 = true;
+			ManageChangeOfTurn(listOfElement1, listOfElement2);
+		}
 		manageGame ();
 	}
 
+	void ManageChangeOfTurn(GameObject[] list1, GameObject[] list2){
+		foreach (GameObject go in list1) {
+			if(go.name == "handPlayer" || go.name == "DropZone"){
+				if(go.transform.childCount>0){
+					foreach(Transform cardInGame in go.transform){
+						draggable[] scriptComponents = cardInGame.GetComponents<draggable>();
+						foreach(draggable script in scriptComponents) {
+							script.enabled = true;
+						}
+					}
+				}
+			}
+		}
+	}
 
 }

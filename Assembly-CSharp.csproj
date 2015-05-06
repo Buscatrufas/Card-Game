@@ -166,6 +166,8 @@
      <Compile Include="Assets\Scripts\Cursor.cs" />
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\IUController.cs" />
+     <Compile Include="Assets\Scripts\Monster.cs" />
+     <Compile Include="Assets\Scripts\MonsterContainer.cs" />
      <Compile Include="Assets\Scripts\MyClient.cs" />
      <Compile Include="Assets\Scripts\MyCustomScript.cs" />
      <Compile Include="Assets\Scripts\NetworkManager.cs" />
@@ -179,6 +181,7 @@
      <Compile Include="Assets\Scripts\moveCube.cs" />
      <None Include="Assets\Plugins\Photon3Unity3D.xml" />
      <None Include="Assets\Photon Unity Networking\Demos\MarcoPolo-Tutorial\marcopolo-readme.txt" />
+     <None Include="Assets\Monsters.xml" />
      <None Include="Assets\Plugins\release_history.txt" />
      <None Include="Assets\Photon Unity Networking\Demos\DemoBoxes\Resources\eurof_tt.txt" />
      <None Include="Assets\Photon Unity Networking\Demos\DemoPickup\Assets\3dFont\3dText.shader" />

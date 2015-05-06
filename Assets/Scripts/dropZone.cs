@@ -11,9 +11,8 @@ public class dropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 		draggable d = eventData.pointerDrag.GetComponent<draggable> ();
 		if (d != null && d.tag == gameObject.tag ) { // && (typeOfItem == d.typeOfItem || typeOfItem==draggable.Slot.INVENTORY )
 			d.parentToReturnTo = this.transform;
-			if(gameObject.name == "DropZone1" || gameObject.name == "DropZone2"){
+			if(gameObject.name == "DropZone")
 				d.changeSlot(draggable.Slot.REST);
-			}
 				
 		}
 
