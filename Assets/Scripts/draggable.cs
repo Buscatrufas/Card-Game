@@ -9,7 +9,7 @@ public class draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	public Transform placeholderParent = null;
 
 	void Start(){
-		this.enabled = false;
+		//this.enabled = false;
 	}
 
 	GameObject placeholder = null;
@@ -92,7 +92,6 @@ public class draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 	public void changeSlot(Slot type){
 		typeOfItem = type;
 	}
-
 
 
 }

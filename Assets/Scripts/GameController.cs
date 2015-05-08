@@ -8,8 +8,8 @@ public class GameController : MonoBehaviour {
 
 	private int turn;
 
-	private bool setPlayer1 = false;
-	private bool setPlayer2 = false;
+	//private bool setPlayer1 = false;
+	//private bool setPlayer2 = false;
 
 	private bool turnPlayer1 = false;
 	private bool turnPlayer2 = false;
@@ -31,25 +31,28 @@ public class GameController : MonoBehaviour {
 	Player jug1;
 	Player jug2;
 
+
+
 	private void Awake(){
 
 		jug1 = new Player ("Buscatrufas", "Guardian");
 		jug2 = new Player ("Butifarra", "Asesino");
 		listOfElement1 = GameObject.FindGameObjectsWithTag ("Player1");
 		listOfElement2 = GameObject.FindGameObjectsWithTag ("Player2");
-		var monsterCollection = MonsterContainer.Load(Path.Combine(Application.dataPath, "monsters.xml"));
-		turn = 0;
-		initializeTable ();
 		selectInit ();
+		initializeTable ();
 		manageGame ();
 		//StartGame ();
 	}
+
 
 		
 
 
 	private void initializeTable(){
-
+		//var monsterCollection = MonsterContainer.Load(Path.Combine(Application.dataPath, "monsters.xml"));
+		/*Debug.Log (monsterCollection.Monsters[0].getName()+ " " + monsterCollection.Monsters[0].getAtk() + " " + 
+		            monsterCollection.Monsters[0].getHealth());*/
 		foreach (GameObject go in listOfElement1) {
 			if (go.name == "NamePlayer") {
 				Text t = go.GetComponent<Text> ();
@@ -58,11 +61,9 @@ public class GameController : MonoBehaviour {
 			
 			}
 			if (go.name == "handPlayer") {
-				/*for (int i = 0; i<3; ++i) {
-					GameObject c = (GameObject)Instantiate (card);
-					c.transform.SetParent (go.transform, false);
-					c.tag = "Player1";
-				}*/
+				for (int i = 0; i<3; ++i) {
+					createDinamicCard(go, "Player1");
+				}
 			}
 		}
 
@@ -75,11 +76,9 @@ public class GameController : MonoBehaviour {
 			}
 
 			if (go.name == "handPlayer") {
-
-				GameObject c = (GameObject)Instantiate (card);
-				c.transform.SetParent (go.transform, false);
-				c.tag = "Player2";
+				createDinamicCard(go, "Player2");
 			}	
+
 		}
 
 	}
@@ -107,7 +106,8 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void manageGame(){
-			if (turnPlayer1 && jug1.Zaphires < 10) {
+			
+		if (turnPlayer1 && jug1.Zaphires < 10) {
 			jug1.Zaphires += 1;
 			initRound (listOfElement1, "Player1");
 		} else if (turnPlayer2 && jug2.Zaphires < 10) {
@@ -143,19 +143,43 @@ public class GameController : MonoBehaviour {
 		manageGame ();
 	}
 
-	void ManageChangeOfTurn(GameObject[] list1, GameObject[] list2){
+	public void ManageChangeOfTurn(GameObject[] list1, GameObject[] list2){
 		foreach (GameObject go in list1) {
-			if(go.name == "handPlayer" || go.name == "DropZone"){
+			if(go.name == "handPlayer"){
 				if(go.transform.childCount>0){
-					foreach(Transform cardInGame in go.transform){
-						draggable[] scriptComponents = cardInGame.GetComponents<draggable>();
-						foreach(draggable script in scriptComponents) {
-							script.enabled = true;
-						}
-					}
+					foreach(Transform cardInGame in go.transform)
+							cardInGame.GetComponent<draggable>().enabled = true;
 				}
 			}
 		}
 	}
 
+	public void createDinamicCard(GameObject go, string player){
+
+		var monsterCollection = MonsterContainer.Load(Path.Combine(Application.dataPath, "monsters.xml"));
+		GameObject c = (GameObject)Instantiate (card);
+		int it = Random.Range (0, monsterCollection.Monsters.Length);
+		foreach(Transform data in c.transform){
+			if(data.name == "name"){
+				Text t = data.GetComponent<Text>();
+				t.text = monsterCollection.Monsters[it].getName();
+			}
+			if(data.name == "Attack"){
+				Text t = data.GetComponentInChildren<Text>();
+				t.text = monsterCollection.Monsters[it].getAtk().ToString();
+			}
+			if(data.name == "Defense"){
+				Text t = data.GetComponentInChildren<Text>();
+				t.text = monsterCollection.Monsters[it].getHealth().ToString();
+			}
+			
+		}
+		c.transform.SetParent (go.transform, false);
+		c.tag = player;
+		if(player == "Player1" && !turnPlayer1)
+			c.GetComponent<draggable> ().enabled = false;
+		if(player == "Player2" && !turnPlayer2)
+			c.GetComponent<draggable> ().enabled = false;
+
+	}
 }

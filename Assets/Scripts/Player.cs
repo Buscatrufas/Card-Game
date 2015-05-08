@@ -12,7 +12,7 @@ public class Player : MonoBehaviour {
 	public Player(string _name, string _classPlayer){
 		namePlayer = _name;
 		classPlayer = _classPlayer;
-		health = 30;
+		health = 20;
 	}
 
 	public int Health{

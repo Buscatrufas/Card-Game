@@ -4,9 +4,101 @@
  			<Health>2</Health>
  			<Atk>2</Atk>
  		</Monster>
+
  		<Monster name="FaperMan">
  			<Health>3</Health>
  			<Atk>1</Atk>
  		</Monster>
+
+ 		<Monster name="Infanteria">
+ 			<Health>2</Health>
+ 			<Atk>1</Atk>
+ 		</Monster>
+
+ 		<Monster name="Arquero">
+ 			<Health>1</Health>
+ 			<Atk>2</Atk>
+ 		</Monster>
+
+ 		<Monster name="Caballero">
+ 			<Health>3</Health>
+ 			<Atk>3</Atk>
+ 		</Monster>
+
+ 		<Monster name="Milicia">
+ 			<Health>1</Health>
+ 			<Atk>1</Atk>
+ 		</Monster>
+
+ 		<Monster name="Hechicero">
+ 			<Health>2</Health>
+ 			<Atk>5</Atk>
+ 		</Monster>
+
+ 		<Monster name="Brujo">
+ 			<Health>1</Health>
+ 			<Atk>5</Atk>
+ 		</Monster>
+
+ 		<Monster name="Fustigador">
+ 			<Health>3</Health>
+ 			<Atk>4</Atk>
+ 		</Monster>
+
+ 		<Monster name="Escudero">
+ 			<Health>4</Health>
+ 			<Atk>1</Atk>
+ 		</Monster>
+
+ 		<Monster name="Guardian">
+ 			<Health>5</Health>
+ 			<Atk>2</Atk>
+ 		</Monster>
+
+ 		<Monster name="Lancero">
+ 			<Health>3</Health>
+ 			<Atk>4</Atk>
+ 		</Monster>
+
+ 		<Monster name="Espectro">
+ 			<Health>1</Health>
+ 			<Atk>2</Atk>
+ 		</Monster>
+
+ 		<Monster name="Arpia">
+ 			<Health>3</Health>
+ 			<Atk>4</Atk>
+ 		</Monster>
+
+ 		<Monster name="Destripador">
+ 			<Health>2</Health>
+ 			<Atk>6</Atk>
+ 		</Monster>
+
+ 		<Monster name="Corsario">
+ 			<Health>3</Health>
+ 			<Atk>5</Atk>
+ 		</Monster>
+
+ 		<Monster name="Asesino Oscuro">
+ 			<Health>4</Health>
+ 			<Atk>6</Atk>
+ 		</Monster>
+
+ 		<Monster name="Centauro">
+ 			<Health>6</Health>
+ 			<Atk>3</Atk>
+ 		</Monster>
+
+ 		<Monster name="Minotauro">
+ 			<Health>6</Health>
+ 			<Atk>4</Atk>
+ 		</Monster>
+
+ 		<Monster name="Acolito">
+ 			<Health>6</Health>
+ 			<Atk>2</Atk>
+ 		</Monster>
+
  	</Monsters>
  </MonsterCollection>
