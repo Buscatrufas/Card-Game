@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.IO;
 
+[RequireComponent(typeof(AudioSource))]
 public class GameController : MonoBehaviour {
 
 	private int turn;
@@ -31,8 +32,6 @@ public class GameController : MonoBehaviour {
 	Player jug1;
 	Player jug2;
 
-
-
 	private void Awake(){
 
 		jug1 = new Player ("Buscatrufas", "Guardian");
@@ -45,9 +44,11 @@ public class GameController : MonoBehaviour {
 		//StartGame ();
 	}
 
+	void Start(){
 
-		
-
+		AudioSource audio = GetComponent<AudioSource> ();
+		audio.Play ();
+	}
 
 	private void initializeTable(){
 		//var monsterCollection = MonsterContainer.Load(Path.Combine(Application.dataPath, "monsters.xml"));
@@ -152,6 +153,14 @@ public class GameController : MonoBehaviour {
 				}
 			}
 		}
+		foreach(GameObject go in list2){
+			if(go.name == "handPlayer"){
+				if(go.transform.childCount>0)
+					foreach(Transform cardInHand in go.transform)
+						cardInHand.GetComponent<draggable>().enabled = false;
+			}
+		}
+
 	}
 
 	public void createDinamicCard(GameObject go, string player){

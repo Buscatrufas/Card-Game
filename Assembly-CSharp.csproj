@@ -179,6 +179,7 @@
      <Compile Include="Assets\Scripts\draggable.cs" />
      <Compile Include="Assets\Scripts\dropZone.cs" />
      <Compile Include="Assets\Scripts\moveCube.cs" />
+     <Compile Include="Assets\totus.cs" />
      <None Include="Assets\Plugins\Photon3Unity3D.xml" />
      <None Include="Assets\Photon Unity Networking\Demos\MarcoPolo-Tutorial\marcopolo-readme.txt" />
      <None Include="Assets\Monsters.xml" />

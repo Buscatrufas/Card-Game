@@ -10,6 +10,8 @@ public class draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
 	void Start(){
 		//this.enabled = false;
+
+
 	}
 
 	GameObject placeholder = null;
@@ -91,6 +93,10 @@ public class draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 
 	public void changeSlot(Slot type){
 		typeOfItem = type;
+	}
+
+	public void OnMouseDown(){
+		Debug.Log (gameObject.name);
 	}
 
 

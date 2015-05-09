@@ -3,101 +3,121 @@
  		<Monster name="Potato Sargent">
  			<Health>2</Health>
  			<Atk>2</Atk>
+ 			<cost>1</cost>
  		</Monster>
 
  		<Monster name="FaperMan">
  			<Health>3</Health>
  			<Atk>1</Atk>
+ 			<cost>1</cost>
  		</Monster>
 
  		<Monster name="Infanteria">
  			<Health>2</Health>
  			<Atk>1</Atk>
+ 			<cost>2</cost>
  		</Monster>
 
  		<Monster name="Arquero">
  			<Health>1</Health>
  			<Atk>2</Atk>
+ 			<cost>1</cost>
  		</Monster>
 
  		<Monster name="Caballero">
  			<Health>3</Health>
  			<Atk>3</Atk>
+ 			<cost>4</cost>
  		</Monster>
 
  		<Monster name="Milicia">
  			<Health>1</Health>
  			<Atk>1</Atk>
+ 			<cost>1</cost>
  		</Monster>
 
  		<Monster name="Hechicero">
  			<Health>2</Health>
  			<Atk>5</Atk>
+ 			<cost>4</cost>
  		</Monster>
 
  		<Monster name="Brujo">
  			<Health>1</Health>
  			<Atk>5</Atk>
+ 			<cost>3</cost>
  		</Monster>
 
  		<Monster name="Fustigador">
  			<Health>3</Health>
  			<Atk>4</Atk>
+ 			<cost>3</cost>
  		</Monster>
 
  		<Monster name="Escudero">
  			<Health>4</Health>
  			<Atk>1</Atk>
+ 			<cost>5</cost>
  		</Monster>
 
  		<Monster name="Guardian">
  			<Health>5</Health>
  			<Atk>2</Atk>
+ 			<cost>2</cost>
  		</Monster>
 
  		<Monster name="Lancero">
  			<Health>3</Health>
  			<Atk>4</Atk>
+ 			<cost>4</cost>
  		</Monster>
 
  		<Monster name="Espectro">
  			<Health>1</Health>
  			<Atk>2</Atk>
+ 			<cost>1</cost>
  		</Monster>
 
  		<Monster name="Arpia">
  			<Health>3</Health>
  			<Atk>4</Atk>
+ 			<cost>3</cost>
  		</Monster>
 
  		<Monster name="Destripador">
  			<Health>2</Health>
  			<Atk>6</Atk>
+ 			<cost>3</cost>
  		</Monster>
 
  		<Monster name="Corsario">
  			<Health>3</Health>
  			<Atk>5</Atk>
+ 			<cost>4</cost>
  		</Monster>
 
  		<Monster name="Asesino Oscuro">
  			<Health>4</Health>
  			<Atk>6</Atk>
+ 			<cost>6</cost>
  		</Monster>
 
  		<Monster name="Centauro">
  			<Health>6</Health>
  			<Atk>3</Atk>
+ 			<cost>4</cost>
  		</Monster>
 
  		<Monster name="Minotauro">
  			<Health>6</Health>
  			<Atk>4</Atk>
+ 			<cost>5</cost>
  		</Monster>
 
  		<Monster name="Acolito">
  			<Health>6</Health>
  			<Atk>2</Atk>
+ 			<cost>3</cost>
  		</Monster>
 
  	</Monsters>

@@ -10,13 +10,11 @@ public class Monster {
 	
 	public int Health;
 	public int Atk;
+	public int Cost;
 
 	public string getName(){ return Name; }
 	public int getHealth(){ return Health; }
 	public int getAtk(){ return Atk; }
-
-	public void toCSV(){
-		Debug.Log ("Nombre: " + this.getName () + " atk: " + this.getAtk () + " defensa: " + this.getHealth ()); 
-	}
+	public int getCost(){ return Cost; }
 
 }
