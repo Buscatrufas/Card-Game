@@ -70,7 +70,7 @@ public class draggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
 				break;
 			}
 		}
-		
+
 		placeholder.transform.SetSiblingIndex(newSiblingIndex);
 
 	}

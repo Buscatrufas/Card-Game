@@ -7,7 +7,7 @@ public class ServerConfing : MonoBehaviour {
 
 	public Transform playerPrefab;
 	public ArrayList playerScripts = new ArrayList();
-	private int numberOfPlayers = 0;
+	//private int numberOfPlayers = 0;
 
 	public GameObject tablePrefab;
 	public GameObject player1;
@@ -30,7 +30,7 @@ public class ServerConfing : MonoBehaviour {
 
 	void SpawnPlayer(NetworkPlayer player)
 	{
-		string tempPlayerString = player.ToString();
+		//string tempPlayerString = player.ToString();
 		//int playerNumber = Convert.ToInt32(tempPlayerString);
 
 		if (playerScripts.Count == 0) {

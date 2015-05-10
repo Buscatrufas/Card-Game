@@ -3,121 +3,121 @@
  		<Monster name="Potato Sargent">
  			<Health>2</Health>
  			<Atk>2</Atk>
- 			<cost>1</cost>
+ 			<Cost>1</Cost>
  		</Monster>
 
  		<Monster name="FaperMan">
  			<Health>3</Health>
  			<Atk>1</Atk>
- 			<cost>1</cost>
+ 			<Cost>1</Cost>
  		</Monster>
 
  		<Monster name="Infanteria">
  			<Health>2</Health>
  			<Atk>1</Atk>
- 			<cost>2</cost>
+ 			<Cost>2</Cost>
  		</Monster>
 
  		<Monster name="Arquero">
  			<Health>1</Health>
  			<Atk>2</Atk>
- 			<cost>1</cost>
+ 			<Cost>1</Cost>
  		</Monster>
 
  		<Monster name="Caballero">
  			<Health>3</Health>
  			<Atk>3</Atk>
- 			<cost>4</cost>
+ 			<Cost>4</Cost>
  		</Monster>
 
  		<Monster name="Milicia">
  			<Health>1</Health>
  			<Atk>1</Atk>
- 			<cost>1</cost>
+ 			<Cost>1</Cost>
  		</Monster>
 
  		<Monster name="Hechicero">
  			<Health>2</Health>
  			<Atk>5</Atk>
- 			<cost>4</cost>
+ 			<Cost>4</Cost>
  		</Monster>
 
  		<Monster name="Brujo">
  			<Health>1</Health>
  			<Atk>5</Atk>
- 			<cost>3</cost>
+ 			<Cost>3</Cost>
  		</Monster>
 
  		<Monster name="Fustigador">
  			<Health>3</Health>
  			<Atk>4</Atk>
- 			<cost>3</cost>
+ 			<Cost>3</Cost>
  		</Monster>
 
  		<Monster name="Escudero">
  			<Health>4</Health>
  			<Atk>1</Atk>
- 			<cost>5</cost>
+ 			<Cost>5</Cost>
  		</Monster>
 
  		<Monster name="Guardian">
  			<Health>5</Health>
  			<Atk>2</Atk>
- 			<cost>2</cost>
+ 			<Cost>2</Cost>
  		</Monster>
 
  		<Monster name="Lancero">
  			<Health>3</Health>
  			<Atk>4</Atk>
- 			<cost>4</cost>
+ 			<Cost>4</Cost>
  		</Monster>
 
  		<Monster name="Espectro">
  			<Health>1</Health>
  			<Atk>2</Atk>
- 			<cost>1</cost>
+ 			<Cost>1</Cost>
  		</Monster>
 
  		<Monster name="Arpia">
  			<Health>3</Health>
  			<Atk>4</Atk>
- 			<cost>3</cost>
+ 			<Cost>3</Cost>
  		</Monster>
 
  		<Monster name="Destripador">
  			<Health>2</Health>
  			<Atk>6</Atk>
- 			<cost>3</cost>
+ 			<Cost>3</Cost>
  		</Monster>
 
  		<Monster name="Corsario">
  			<Health>3</Health>
  			<Atk>5</Atk>
- 			<cost>4</cost>
+ 			<Cost>4</Cost>
  		</Monster>
 
  		<Monster name="Asesino Oscuro">
  			<Health>4</Health>
  			<Atk>6</Atk>
- 			<cost>6</cost>
+ 			<Cost>6</Cost>
  		</Monster>
 
  		<Monster name="Centauro">
  			<Health>6</Health>
  			<Atk>3</Atk>
- 			<cost>4</cost>
+ 			<Cost>4</Cost>
  		</Monster>
 
  		<Monster name="Minotauro">
  			<Health>6</Health>
  			<Atk>4</Atk>
- 			<cost>5</cost>
+ 			<Cost>5</Cost>
  		</Monster>
 
  		<Monster name="Acolito">
  			<Health>6</Health>
  			<Atk>2</Atk>
- 			<cost>3</cost>
+ 			<Cost>3</Cost>
  		</Monster>
 
  	</Monsters>

@@ -5,7 +5,6 @@ public class Player : MonoBehaviour {
 
 	private int health;
 	private string namePlayer;
-	private GameObject[] card;
 	private string classPlayer;
 	private int numZaphires;
 
@@ -13,6 +12,7 @@ public class Player : MonoBehaviour {
 		namePlayer = _name;
 		classPlayer = _classPlayer;
 		health = 20;
+		numZaphires = 0;
 	}
 
 	public int Health{
@@ -48,6 +48,10 @@ public class Player : MonoBehaviour {
 		}set{
 			numZaphires = value;
 		}
+	}
+
+	public string getNamePlayer(){
+		return namePlayer;
 	}
 
 }

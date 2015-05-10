@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour {
 	public GameObject Player2Zone;
 	public GameObject card;
 	public GameObject zhapire;
+	public GameObject lockZaphire;
 	public draggable script;
 
 	public GameObject table;
@@ -29,18 +30,17 @@ public class GameController : MonoBehaviour {
 
 	private static GameObject[] listOfElement1;
 	private static GameObject[] listOfElement2;
-	Player jug1;
-	Player jug2;
+	Player jug1 = new Player ("Buscatrufas", "Guardian");
+	Player jug2 = new Player ("Butifarra", "Asesino");
 
 	private void Awake(){
 
-		jug1 = new Player ("Buscatrufas", "Guardian");
-		jug2 = new Player ("Butifarra", "Asesino");
 		listOfElement1 = GameObject.FindGameObjectsWithTag ("Player1");
 		listOfElement2 = GameObject.FindGameObjectsWithTag ("Player2");
 		selectInit ();
-		initializeTable ();
 		manageGame ();
+		initializeTable ();
+
 		//StartGame ();
 	}
 
@@ -57,13 +57,13 @@ public class GameController : MonoBehaviour {
 		foreach (GameObject go in listOfElement1) {
 			if (go.name == "NamePlayer") {
 				Text t = go.GetComponent<Text> ();
-				t.text = jug1.NamePlayer.ToUpper();
+				t.text = jug1.getNamePlayer();
 				life1.text = jug1.Health.ToString();
 			
 			}
 			if (go.name == "handPlayer") {
 				for (int i = 0; i<3; ++i) {
-					createDinamicCard(go, "Player1");
+					createDinamicCard(go, "Player1", jug1);
 				}
 			}
 		}
@@ -71,13 +71,12 @@ public class GameController : MonoBehaviour {
 		foreach (GameObject go in listOfElement2) {
 			if (go.name == "NamePlayer") {
 				Text t = go.GetComponent<Text> ();
-				t.text = jug2.NamePlayer.ToUpper();
+				t.text = jug2.getNamePlayer();
 				life2.text = jug2.Health.ToString();
-				
 			}
 
 			if (go.name == "handPlayer") {
-				createDinamicCard(go, "Player2");
+				createDinamicCard(go, "Player2", jug2);
 			}	
 
 		}
@@ -110,12 +109,13 @@ public class GameController : MonoBehaviour {
 			
 		if (turnPlayer1 && jug1.Zaphires < 10) {
 			jug1.Zaphires += 1;
+			Debug.Log("Cristales jugador1: " + jug1.Zaphires);
 			initRound (listOfElement1, "Player1");
 		} else if (turnPlayer2 && jug2.Zaphires < 10) {
 			jug2.Zaphires += 1;
+			Debug.Log("Cristales jugador2: " + jug2.Zaphires);
 			initRound (listOfElement2, "Player2");
 		}
-
 
 	}
 
@@ -128,6 +128,8 @@ public class GameController : MonoBehaviour {
 				//return true;
 			}
 		//return false;
+
+
 	}
 
 	public void pushNext(){
@@ -135,60 +137,183 @@ public class GameController : MonoBehaviour {
 		if (turnPlayer1) {
 			turnPlayer1 = false;
 			turnPlayer2 = true;
-			ManageChangeOfTurn(listOfElement2, listOfElement1);
+			manageGame ();
+			ManageChangeOfTurn(listOfElement2, listOfElement1, jug2);
 		} else {
 			turnPlayer2 = false;
 			turnPlayer1 = true;
-			ManageChangeOfTurn(listOfElement1, listOfElement2);
+			manageGame ();
+			ManageChangeOfTurn(listOfElement1, listOfElement2, jug1);
 		}
-		manageGame ();
+
 	}
 
-	public void ManageChangeOfTurn(GameObject[] list1, GameObject[] list2){
+	public void ManageChangeOfTurn(GameObject[] list1, GameObject[] list2, Player jug){
 		foreach (GameObject go in list1) {
 			if(go.name == "handPlayer"){
 				if(go.transform.childCount>0){
-					foreach(Transform cardInGame in go.transform)
-							cardInGame.GetComponent<draggable>().enabled = true;
+					foreach(Transform cardInGame in go.transform){
+						if(isUsableThisTransformCard(cardInGame, jug)){
+								cardInGame.GetComponent<draggable>().enabled = true;
+								Image img = cardInGame.GetComponent<Image> ();
+								img.color = Color.green;
+						}
+					}
 				}
 			}
 		}
 		foreach(GameObject go in list2){
 			if(go.name == "handPlayer"){
-				if(go.transform.childCount>0)
-					foreach(Transform cardInHand in go.transform)
+				if(go.transform.childCount>0){
+					foreach(Transform cardInHand in go.transform){
 						cardInHand.GetComponent<draggable>().enabled = false;
+						Image img = cardInHand.GetComponent<Image> ();
+						img.color = Color.red;
+					}
+				}
 			}
+			if(go.name == "DropZone"){
+				if(go.transform.childCount>0){
+					foreach(Transform cardInDropZone in go.transform){
+						cardInDropZone.GetComponent<draggable>().enabled = false;
+						Image img = cardInDropZone.GetComponent<Image> ();
+						img.color = Color.red;
+					}
+				}
+			}
+			if(go.name == "ManaPlayer"){
+				int reloadZaphires = go.transform.childCount;
+				for(int i = reloadZaphires-1; i>=0; --i){
+					Destroy(go.transform.GetChild(i).gameObject);
+				}
+				for(int i = 0; i<reloadZaphires; ++i){
+					GameObject mana = (GameObject) Instantiate(zhapire);
+					mana.transform.SetParent (go.transform, false);
+					mana.tag = go.tag;
+				}
+				Debug.Log(go.tag);
+				//jug.Zaphires = go.transform.childCount;
+				//Debug.Log("Numero de cristales al final del turno: " + jug.Zaphires);
+			}
+		}
+	}
+
+	public void createDinamicCard(GameObject go, string player, Player jug){
+
+		var monsterCollection = MonsterContainer.Load (Path.Combine (Application.dataPath, "monsters.xml"));
+		GameObject c = (GameObject)Instantiate (card);
+
+		int it = Random.Range (0, monsterCollection.Monsters.Length);
+
+		foreach (Transform data in c.transform) {
+			if (data.name == "name") {
+				Text t = data.GetComponent<Text> ();
+				t.text = monsterCollection.Monsters [it].getName ();
+				c.name = monsterCollection.Monsters [it].getName ();
+			}
+			if (data.name == "Attack") {
+				Text t = data.GetComponentInChildren<Text> ();
+				t.text = monsterCollection.Monsters [it].getAtk ().ToString ();
+			}
+			if (data.name == "Defense") {
+				Text t = data.GetComponentInChildren<Text> ();
+				t.text = monsterCollection.Monsters [it].getHealth ().ToString ();
+			}
+			if (data.name == "cost") {
+				Text t = data.GetComponentInChildren<Text> ();
+				t.text = monsterCollection.Monsters [it].getCost ().ToString ();
+			}
+			
+		}
+
+
+		c.transform.SetParent (go.transform, false);
+		c.tag = player;
+		if ((player == "Player1" && !turnPlayer1) || (!isUsableThisCard (c, jug))) {
+			c.GetComponent<draggable> ().enabled = false;
+			Image img = c.GetComponent<Image> ();
+			img.color = Color.red;
+		} else if ((player == "Player2" && !turnPlayer2) || (!isUsableThisCard (c, jug))) {
+			c.GetComponent<draggable> ().enabled = false;
+			Image img = c.GetComponent<Image> ();
+			img.color = Color.red;
+		} else {
+			Image img = c.GetComponent<Image> ();
+			img.color = Color.green;
 		}
 
 	}
 
-	public void createDinamicCard(GameObject go, string player){
-
-		var monsterCollection = MonsterContainer.Load(Path.Combine(Application.dataPath, "monsters.xml"));
-		GameObject c = (GameObject)Instantiate (card);
-		int it = Random.Range (0, monsterCollection.Monsters.Length);
-		foreach(Transform data in c.transform){
-			if(data.name == "name"){
-				Text t = data.GetComponent<Text>();
-				t.text = monsterCollection.Monsters[it].getName();
+	public bool isUsableThisCard(GameObject go, Player jug){
+		foreach (Transform cost in go.transform) {
+			if (cost.name == "cost") {
+				Text sCost = cost.GetComponentInChildren<Text>();
+				int price = int.Parse(sCost.text);
+				if(jug.Zaphires>=price) return true;
 			}
-			if(data.name == "Attack"){
-				Text t = data.GetComponentInChildren<Text>();
-				t.text = monsterCollection.Monsters[it].getAtk().ToString();
-			}
-			if(data.name == "Defense"){
-				Text t = data.GetComponentInChildren<Text>();
-				t.text = monsterCollection.Monsters[it].getHealth().ToString();
-			}
-			
 		}
-		c.transform.SetParent (go.transform, false);
-		c.tag = player;
-		if(player == "Player1" && !turnPlayer1)
-			c.GetComponent<draggable> ().enabled = false;
-		if(player == "Player2" && !turnPlayer2)
-			c.GetComponent<draggable> ().enabled = false;
+		return false;
+	}
+
+	public bool isUsableThisTransformCard(Transform go, Player jug){
+		foreach (Transform cost in go.transform) {
+			if (cost.name == "cost") {
+				Text sCost = cost.GetComponentInChildren<Text>();
+				int price = int.Parse(sCost.text);
+				if(jug.Zaphires>=price){ 
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public void DisabledZaphires(GameObject card){
+		foreach (Transform cost in card.transform) {
+			if (cost.name == "cost") {
+				Text sCost = cost.GetComponentInChildren<Text>();
+				int price = int.Parse(sCost.text);
+				GameObject[] zhapireContent = GameObject.FindGameObjectsWithTag(card.tag);
+				foreach(GameObject zaphire in zhapireContent){
+					if(zaphire.name == "ManaPlayer"){
+						for(int i = zaphire.transform.childCount - 1; i >= zaphire.transform.childCount - price ; --i)
+							Destroy(zaphire.transform.GetChild(i).gameObject);
+						for(int i = 0; i<price; ++i){
+							GameObject mana = (GameObject)Instantiate (lockZaphire);
+							mana.transform.SetParent (zaphire.transform, false);
+							mana.tag = card.tag;
+						}
+					}
+
+					//if(zaphire.name == "handPlayer")
+				}
+				if(cost.tag == "Player1") {
+					Debug.Log(jug1.Zaphires);
+					jug1.Zaphires -= price;
+					DisabledHandPostDrop(card.tag, jug1);
+				}else{
+					Debug.Log(jug2.Zaphires);
+					jug2.Zaphires -= price;
+					DisabledHandPostDrop(card.tag, jug2);
+				}
+			}
+		}
+	}
+
+	public void DisabledHandPostDrop(string tag, Player jug){
+
+		GameObject[] reviewHand = GameObject.FindGameObjectsWithTag(tag);
+		foreach (GameObject hand in reviewHand) {
+			if(hand.name == "handPlayer"){
+				for(int i = 0; i<hand.transform.childCount; ++i){
+					if(!isUsableThisTransformCard(hand.transform.GetChild(i), jug)){
+						hand.transform.GetChild(i).GetComponent<draggable>().enabled = false;
+						Image img = hand.transform.GetChild(i).GetComponent<Image> ();
+						img.color = Color.red;
+					}
+				}
+			}
+		}
 
 	}
 }

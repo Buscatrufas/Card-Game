@@ -51,7 +51,7 @@ public class IUController : MonoBehaviour {
 			
 			}
 
-			Debug.Log("Se ha creado un jugador con el nombre : " + jug.NamePlayer + " y de clase:  "  + jug.ClassPlayer );	
+			Debug.Log("Se ha creado un jugador con el nombre : " + jug.getNamePlayer() + " y de clase:  "  + jug.ClassPlayer );	
 			Network.Connect(connectionIP, connectionPort);
 
 		}

@@ -4,6 +4,8 @@ using UnityEngine.EventSystems;
 
 public class dropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler {
 
+	public GameObject gc;
+
 	//public draggable.Slot typeOfItem = draggable.Slot.INVENTORY;
 
 	public void OnDrop (PointerEventData eventData){
@@ -11,9 +13,11 @@ public class dropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 		draggable d = eventData.pointerDrag.GetComponent<draggable> ();
 		if (d != null && d.tag == gameObject.tag ) { // && (typeOfItem == d.typeOfItem || typeOfItem==draggable.Slot.INVENTORY )
 			d.parentToReturnTo = this.transform;
-			if(gameObject.name == "DropZone")
+			if(gameObject.name == "DropZone"){
 				d.changeSlot(draggable.Slot.REST);
-				
+				GameController gamer = gc.GetComponent<GameController>();
+				gamer.DisabledZaphires(eventData.pointerDrag);
+			}
 		}
 
 	}
