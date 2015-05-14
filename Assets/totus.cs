@@ -1,23 +1,29 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class totus : MonoBehaviour {
 
-	public GameObject source;
 	public GameObject target;
-	private LineRenderer lr;
+	public GameObject source;
 
+	public Canvas table;
+
+	void Awake(){
+		table.renderMode = RenderMode.ScreenSpaceCamera;
+	}
 	// Use this for initialization
 	void Start () {
+	
+		/*LineRenderer lr = source.AddComponent<LineRenderer> ();
+		lr.useWorldSpace = true;
+		lr.sortingOrder = 1;
+		lr.SetWidth (1, 1);
+		lr.SetVertexCount (2);*/
 
-		 
-		lr = gameObject.AddComponent<LineRenderer> ();
-		lr.SetWidth (6, 6);
-		lr.SetVertexCount (2);
-
-
-		lr.SetPosition (0, source.transform.position);
-		lr.SetPosition (1, target.transform.position);
+		//lr.SetPosition (0, source.transform.position);
+		//lr.SetPosition (1, target.transform.position);
 	}
 
 
@@ -25,7 +31,9 @@ public class totus : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+	}
 
-
+	public void OnMouseDown(){
+		Debug.Log (gameObject.name);
 	}
 }

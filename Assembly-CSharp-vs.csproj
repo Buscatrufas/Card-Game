@@ -161,6 +161,8 @@
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SmoothSyncMovement.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\SupportLogger.cs" />
      <Compile Include="Assets\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
+     <Compile Include="Assets\Scripts\ButtonsController.cs" />
+     <Compile Include="Assets\Scripts\Clikcable.cs" />
      <Compile Include="Assets\Scripts\ComboBox.cs" />
      <Compile Include="Assets\Scripts\ComboBoxTest.cs" />
      <Compile Include="Assets\Scripts\Cursor.cs" />
@@ -169,11 +171,11 @@
      <Compile Include="Assets\Scripts\Monster.cs" />
      <Compile Include="Assets\Scripts\MonsterContainer.cs" />
      <Compile Include="Assets\Scripts\MyClient.cs" />
-     <Compile Include="Assets\Scripts\MyCustomScript.cs" />
      <Compile Include="Assets\Scripts\NetworkManager.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\RandomMatch.cs" />
      <Compile Include="Assets\Scripts\ServerConfing.cs" />
+     <Compile Include="Assets\Scripts\SetSortingLayer.cs" />
      <Compile Include="Assets\Scripts\TurnManager.cs" />
      <Compile Include="Assets\Scripts\TurnOfPlayer.cs" />
      <Compile Include="Assets\Scripts\draggable.cs" />

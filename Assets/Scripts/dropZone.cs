@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class dropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler {
 
@@ -9,12 +10,14 @@ public class dropZone : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPoin
 	//public draggable.Slot typeOfItem = draggable.Slot.INVENTORY;
 
 	public void OnDrop (PointerEventData eventData){
-		Debug.Log (eventData.pointerDrag + " OnDrop to " + gameObject.name);
+		//Debug.Log (eventData.pointerDrag + " OnDrop to " + gameObject.name);
 		draggable d = eventData.pointerDrag.GetComponent<draggable> ();
 		if (d != null && d.tag == gameObject.tag ) { // && (typeOfItem == d.typeOfItem || typeOfItem==draggable.Slot.INVENTORY )
 			d.parentToReturnTo = this.transform;
 			if(gameObject.name == "DropZone"){
 				d.changeSlot(draggable.Slot.REST);
+				Image img = d.GetComponent<Image> ();
+				img.color = Color.red;
 				GameController gamer = gc.GetComponent<GameController>();
 				gamer.DisabledZaphires(eventData.pointerDrag);
 			}

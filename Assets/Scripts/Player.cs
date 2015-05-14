@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
 	private string namePlayer;
 	private string classPlayer;
 	private int numZaphires;
+	private int costPerTurn;
 
 	public Player(string _name, string _classPlayer){
 		namePlayer = _name;
@@ -52,6 +53,14 @@ public class Player : MonoBehaviour {
 
 	public string getNamePlayer(){
 		return namePlayer;
+	}
+
+	public int CostInTurn{
+		get{
+			return this.costPerTurn;
+		}set{
+			costPerTurn = value;
+		}
 	}
 
 }

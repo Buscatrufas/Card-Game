@@ -19,7 +19,7 @@ public class IUController : MonoBehaviour {
 	public Text warning;
 
 	/*--- Declaracion de jugador ---*/
-	private Player jug;
+	private static Player jug;
 
 	/*--- Control de inicio de juego ---*/
 	bool IUEnabled = true;
@@ -91,4 +91,7 @@ public class IUController : MonoBehaviour {
 		return comboBoxControl.SelectedItemIndex;
 	}
 
+	public Player getPlayer(){
+		return jug;
+	}
 }
